@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 require("dotenv/config")
+const cors = require("cors")
 
 const userRoute = require("./route/userRoute")
 const FormRoute = require("./route/FormRoute")
@@ -12,6 +13,7 @@ app.get("/",(req,res) => {
 })
 
 app.use(express.json())
+app.use(cors())
 
 app.use("/api/user",userRoute)
 app.use("/api/form",FormRoute)
